@@ -1,0 +1,39 @@
+# Création de la liste pour stocker les articles
+shopping_list = []
+
+# Boucle while pour le menu
+while True:
+    print("\nMenu d'options :")
+    print("1. Ajouter un article")
+    print("2. Supprimer un article")
+    print("3. Afficher les articles")
+    print("4. Quitter")
+
+    choice = input("Sélectionnez une option (1-4) : ")
+
+    if choice == "1":
+        # Limiter le nombre d'articles à ajouter à 10
+        if len(shopping_list) < 10:
+            item = input("Entrez l'article à ajouter : ")
+            shopping_list.append(item)
+            print(f"'{item}' a été ajouté à la liste.")
+        else:
+            print("La liste est pleine, vous ne pouvez pas ajouter plus d'articles.")
+
+    elif choice == "2":
+        item = input("Entrez l'article à supprimer : ")
+        if item in shopping_list:
+            shopping_list.remove(item)
+            print(f"'{item}' a été supprimé de la liste.")
+        else:
+            print(f"'{item}' n'est pas dans la liste.")
+
+    elif choice == "3":
+        print("Articles dans la liste :")
+        for index in range(len(shopping_list)):
+            print(f"{index + 1}. {shopping_list[index]}")
+
+    elif choice == "4":
+        print("Merci d'avoir utilisé le gestionnaire de liste d'achats. Au revoir !")
+        break
+
